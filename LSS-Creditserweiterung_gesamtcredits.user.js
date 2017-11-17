@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         LSS-Creditserweiterung_gesamtcredits
-// @version      pre-Alpha
+// @version      1.0
 // @description  Gesamtcredits des Spielers werden gespeichert und im Hauptscript verarbeitet (durch Cookies)
 // @author       KBOE2
 // @include      https://www.leitstellenspiel.de/profile/205976
