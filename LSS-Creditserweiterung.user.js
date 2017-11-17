@@ -38,16 +38,7 @@ function mach_tausender() {
     var i;
     var j=0;
     var ergebnis="";
-    i=zahl.length-1;
-    while (i >= 0) {
-        ergebnis=zahl.substr(i,1)+ergebnis;
-        j++;
-        if (j==3) {
-            ergebnis="."+ergebnis;
-            j=0;
-        }
-        i--;
-    }
+    ergebnis = parseInt(zahl).toLocaleString();
     return ergebnis;
 }
 
@@ -80,33 +71,13 @@ function dienstgrad_next(dienstgrad){
     }
 }
 
-function tausender(number) {
-	// Info: Die '' sind zwei Hochkommas
-	number = '' + number;
-	if (number.length > 3) {
-		var mod = number.length % 3;
-		var output = (mod > 0 ? (number.substring(0,mod)) : '');
-		for (i=0 ; i < Math.floor(number.length / 3); i++) {
-			if ((mod === 0) && (i === 0)){
-				output += number.substring(mod+ 3 * i, mod + 3 * i + 3);
-			}
-			else
-
-			// hier wird das Trennzeichen festgelegt mit '.'
-			output+= '.' + number.substring(mod + 3 * i, mod + 3 * i + 3);
-		}
-		return (output);
-	}
-	else return number;
-}
-
 var benoetigt = naechster_dienstgrad(dienstgrad);
 var naechster_grad = dienstgrad_next(dienstgrad);
 gesamtcredits = parseInt(readCookie("gesamtcredits"));
 var verbleibend = benoetigt - gesamtcredits;
-next_level = tausender(parseInt(verbleibend));
+next_level = parseInt(verbleibend).toLocaleString();
 
-$(".nav.navbar-nav.navbar-right").append(`<li ><a id="menu_creditsverwaltung"  class="dropdown_toggle href="#" role="button" data-toggle="dropdown" aria-expanded="false"><img src="http://img5.fotos-hochladen.net/uploads/moneyboxfille9ropt2yxs7.png" heigth="25" width="25"><span class="visible-xs">Creditsverwaltung (von KBOE2)</span><b class="caret"></b></a><ul class="dropdown-menu" role="menu" aria-labelledy="menu_Creditsverwaltung><li class="divider" role="presentation"></li><li role="presentation" >` + Credits + `</li><li role="presentation"><a href="/credits/overview" class="lightbox-open" target="blank" onclick="lightbox_open()" >Credits-Übersicht</a></li><li role="presentation">` + Coins + `</li><li role="presentation"><a href="/coins/list" class="lightbox-open" target="blank" onclick="lightbox_open()">Coinsprotokoll</a></li><li class="divider" role="presentation"></li><li role="presentation"><a>Gesamtcredits: ` + credits_gesamt + `</a></li><li role="presentation"><a>Credits zum nächsten Dienstgrad<br>(`+ naechster_grad + `):<br>`+ next_level + `</a></li><li class="divider" role="presentation"></li><li role="presentation"><a href="http://kboe-2.de.tl?in=4" target="blank"><img src="http://www.fotos-hochladen.net/uploads/kb29tnz0o1c3qu.jpg" alt="KBOE2"/> Webseite des Entwicklers (KBOE2)</a></li><li role="presentation"><a class="lightbox-open" target="blank" onclick="lightbox_open()" href="/profile/205976">Profil des Entwicklers (KBOE2)</a></li><li role="presentation"><a href="https://docs.google.com/forms/d/e/1FAIpQLSeEBV6pdU1zPJAEAoIVjdOOxoc_vf88vqaDvdLrS0aanPrasw/viewform" target="blank" class="lightbox-open" onclick="lightbox_open">Programmierauftrag/idee senden</a></li><li class="divider" role="presentation"></li><li role="presentation" onclick="send()"><a >u.C.=under Construction<br>(in Bearbeitung)</a></li><li class="divider" role="presentation"></li><li role="presentation"><a href="https://icons8.com/" target="blank">Icon-Pack</a></li></ul></li>`);
+$(".nav.navbar-nav.navbar-right").append('<li ><a id="menu_creditsverwaltung"  class="dropdown_toggle href="#" role="button" data-toggle="dropdown" aria-expanded="false"><img src="http://img5.fotos-hochladen.net/uploads/moneyboxfille9ropt2yxs7.png" heigth="25" width="25"><span class="visible-xs">Creditsverwaltung (von KBOE2)</span><b class="caret"></b></a><ul class="dropdown-menu" role="menu" aria-labelledy="menu_Creditsverwaltung><li class="divider" role="presentation"></li><li role="presentation" >' + Credits + '</li><li role="presentation"><a href="/credits/overview" class="lightbox-open" target="blank" onclick="lightbox_open()" >Credits-Übersicht</a></li><li role="presentation">' + Coins + '</li><li role="presentation"><a href="/coins/list" class="lightbox-open" target="blank" onclick="lightbox_open()">Coinsprotokoll</a></li><li class="divider" role="presentation"></li><li role="presentation"><a>Gesamtcredits: ' + credits_gesamt + '</a></li><li role="presentation"><a>Credits zum nächsten Dienstgrad<br>(' + naechster_grad + '):<br>'+ next_level + '</a></li><li class="divider" role="presentation"></li><li role="presentation"><a href="http://kboe-2.de.tl?in=4" target="blank"><img src="http://www.fotos-hochladen.net/uploads/kb29tnz0o1c3qu.jpg" alt="KBOE2"/> Webseite des Entwicklers (KBOE2)</a></li><li role="presentation"><a class="lightbox-open" target="blank" onclick="lightbox_open()" href="/profile/205976">Profil des Entwicklers (KBOE2)</a></li><li role="presentation"><a href="https://docs.google.com/forms/d/e/1FAIpQLSeEBV6pdU1zPJAEAoIVjdOOxoc_vf88vqaDvdLrS0aanPrasw/viewform" target="blank" class="lightbox-open" onclick="lightbox_open">Programmierauftrag/idee senden</a></li><li class="divider" role="presentation"></li><li role="presentation" onclick="send()"><a >u.C.=under Construction<br>(in Bearbeitung)</a></li><li class="divider" role="presentation"></li><li role="presentation"><a href="https://icons8.com/" target="blank">Icon-Pack</a></li></ul></li>');
 
 credits.parentNode.remove(credits);
 coins.parentNode.remove(coins);
