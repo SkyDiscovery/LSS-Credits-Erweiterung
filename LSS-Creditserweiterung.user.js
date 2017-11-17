@@ -11,8 +11,8 @@ var Credits = document.getElementById("navigation_top").outerHTML;
 var Coins = document.getElementById("coins_top").outerHTML;
 var credits = document.getElementById("navigation_top");
 var coins = document.getElementById("coins_top");
-var gesamtcredits = "undefinied";
-var dienstgrad = "undefinied";
+var gesamtcredits = "undefined";
+var dienstgrad = "undefined";
 var next_level = "u.C.";
 
 function lightbox_open() {
@@ -76,6 +76,12 @@ var naechster_grad = dienstgrad_next(dienstgrad);
 gesamtcredits = parseInt(readCookie("gesamtcredits"));
 var verbleibend = benoetigt - gesamtcredits;
 next_level = parseInt(verbleibend).toLocaleString();
+if (credits_gesamt == "NaN"){
+	credits_gesamt = "Bitte auf das Profil gehen<br>und dann die Seite neu laden";
+}
+if (next_level == "NaN"){
+	next_level = "Bitte auf das Profil gehen<br>und dann die Seite neu laden";
+}
 
 $(".nav.navbar-nav.navbar-right").append('<li ><a id="menu_creditsverwaltung"  class="dropdown_toggle href="#" role="button" data-toggle="dropdown" aria-expanded="false"><img src="http://img5.fotos-hochladen.net/uploads/moneyboxfille9ropt2yxs7.png" heigth="25" width="25"><span class="visible-xs">Creditsverwaltung (von KBOE2)</span><b class="caret"></b></a><ul class="dropdown-menu" role="menu" aria-labelledy="menu_Creditsverwaltung><li class="divider" role="presentation"></li><li role="presentation" >' + Credits + '</li><li role="presentation"><a href="/credits/overview" class="lightbox-open" target="blank" onclick="lightbox_open()" >Credits-Übersicht</a></li><li role="presentation">' + Coins + '</li><li role="presentation"><a href="/coins/list" class="lightbox-open" target="blank" onclick="lightbox_open()">Coinsprotokoll</a></li><li class="divider" role="presentation"></li><li role="presentation"><a>Gesamtcredits: ' + credits_gesamt + '</a></li><li role="presentation"><a>Credits zum nächsten Dienstgrad<br>(' + naechster_grad + '):<br>'+ next_level + '</a></li><li class="divider" role="presentation"></li><li role="presentation"><a href="http://kboe-2.de.tl?in=4" target="blank"><img src="http://www.fotos-hochladen.net/uploads/kb29tnz0o1c3qu.jpg" alt="KBOE2"/> Webseite des Entwicklers (KBOE2)</a></li><li role="presentation"><a class="lightbox-open" target="blank" onclick="lightbox_open()" href="/profile/205976">Profil des Entwicklers (KBOE2)</a></li><li role="presentation"><a href="https://docs.google.com/forms/d/e/1FAIpQLSeEBV6pdU1zPJAEAoIVjdOOxoc_vf88vqaDvdLrS0aanPrasw/viewform" target="blank" class="lightbox-open" onclick="lightbox_open">Programmierauftrag/idee senden</a></li><li class="divider" role="presentation"></li><li role="presentation" onclick="send()"><a >u.C.=under Construction<br>(in Bearbeitung)</a></li><li class="divider" role="presentation"></li><li role="presentation"><a href="https://icons8.com/" target="blank">Icon-Pack</a></li></ul></li>');
 
