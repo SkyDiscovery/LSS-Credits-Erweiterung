@@ -26,7 +26,7 @@ for (var i = 0; i < elements.length; i++){
   ausgabe = ausgabe.replace("Dienstgrad:","");
   ausgabe = ausgabe.replace("verdiente Credits","");
   var gesamtcredits = "";
-    while (result = regex.exec(ausgabe)) {
+    while (result == regex.exec(ausgabe)) {
     indices.push("" + result.index);
     gesamtcredits+=result;
   }
