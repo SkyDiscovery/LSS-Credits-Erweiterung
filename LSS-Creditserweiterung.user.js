@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         LSS-Creditserweiterung
-// @version      1.1
+// @version      1.1.1
 // @description  In einer Drop-Down-List werden verschiedene Extras zu den Credits angezeigt
 // @author       KBOE2
 // @include      https://www.leitstellenspiel.de/*
