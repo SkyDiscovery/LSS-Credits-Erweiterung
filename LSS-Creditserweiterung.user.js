@@ -22,6 +22,31 @@ function lightbox_open() {
     lightboxOpen();
 }
 
+var regex = /\d/gi, result, indices = [];
+var elements = document.getElementsByClassName("page-header");
+for (var i = 0; i < elements.length; i++){
+  var element = elements[i];
+  var ausgabe = element.innerHTML;
+  ausgabe = ausgabe.replace(/ /,"");
+  ausgabe = ausgabe.replace(/\n|\r/g,"");
+  ausgabe = ausgabe.replace(/<div.+div>|\r/g,"");
+  ausgabe = ausgabe.replace(/<h1.+h1>|\r/g,"");
+  ausgabe = ausgabe.replace(/<a.+a>|\r/g,"");
+  ausgabe = ausgabe.replace(/<br>|\r/g,"");
+  ausgabe = ausgabe.replace("Verband:","");
+  ausgabe = ausgabe.replace("Dienstgrad:","");
+  ausgabe = ausgabe.replace("verdiente Credits","");
+  var gesamtcredits = "";
+    while (result == regex.exec(ausgabe)) {
+    indices.push("" + result.index);
+    gesamtcredits+=result;
+  }
+  ausgabe = ausgabe.replace(/\d.+\d/,"");
+  var dienstgrad = ausgabe;
+  document.cookie = "gesamtcredits=" + gesamtcredits + "; path=/";
+  document.cookie = "dienstgrad=" + dienstgrad + "; path=/";
+}
+
 function readCookie(name) {
     var nameEQ = name + "=";
     var ca = document.cookie.split(';');
@@ -90,28 +115,3 @@ $(".nav.navbar-nav.navbar-right").append('<li ><a id="menu_creditsverwaltung"  c
 
 credits.parentNode.remove(credits);
 coins.parentNode.remove(coins);
-
-var regex = /\d/gi, result, indices = [];
-var elements = document.getElementsByClassName("page-header");
-for (var i = 0; i < elements.length; i++){
-  var element = elements[i];
-  var ausgabe = element.innerHTML;
-  ausgabe = ausgabe.replace(/ /,"");
-  ausgabe = ausgabe.replace(/\n|\r/g,"");
-  ausgabe = ausgabe.replace(/<div.+div>|\r/g,"");
-  ausgabe = ausgabe.replace(/<h1.+h1>|\r/g,"");
-  ausgabe = ausgabe.replace(/<a.+a>|\r/g,"");
-  ausgabe = ausgabe.replace(/<br>|\r/g,"");
-  ausgabe = ausgabe.replace("Verband:","");
-  ausgabe = ausgabe.replace("Dienstgrad:","");
-  ausgabe = ausgabe.replace("verdiente Credits","");
-  var gesamtcredits = "";
-    while (result == regex.exec(ausgabe)) {
-    indices.push("" + result.index);
-    gesamtcredits+=result;
-  }
-  ausgabe = ausgabe.replace(/\d.+\d/,"");
-  var dienstgrad = ausgabe;
-  document.cookie = "gesamtcredits=" + gesamtcredits + "; path=/";
-  document.cookie = "dienstgrad=" + dienstgrad + "; path=/";
-}
