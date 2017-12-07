@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         LSS-Creditserweiterung
+// @name         LSS-Creditserweiterung test
 // @version      1.1
 // @description  In einer Drop-Down-List werden verschiedene Extras zu den Credits angezeigt
 // @author       KBOE2
