@@ -5,7 +5,7 @@
 // @author       KBOE2
 // @include      https://www.leitstellenspiel.de/*
 // @include      https://www.leitstellenspiel.de/profile/*
-// @exlude       https://www.leitstellenspiel.de/missions/*
+// @exclude      https://www.leitstellenspiel.de/missions/*
 // @grant        none
 // ==/UserScript==
 
