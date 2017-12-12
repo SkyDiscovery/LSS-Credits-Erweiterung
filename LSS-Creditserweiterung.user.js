@@ -75,7 +75,7 @@ function dienstgrad_next(dienstgrad){
     }
 }
 
-var benoetigt = naechster_dienstgrad(dienstgrad);
+var benoetigt = naechster_dienstgrad(dienstgrad); 
 var naechster_grad = dienstgrad_next(dienstgrad);
 gesamtcredits = parseInt(readCookie("gesamtcredits"));
 var verbleibend = benoetigt - gesamtcredits;
